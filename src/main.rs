@@ -4,6 +4,7 @@ use vibe_calc::utils::config;
 fn main() {
     let config = config::read_config().unwrap_or_else(|e| {
         eprintln!("Failed to read config: {}, using defaults", e);
+        config::save_default_config().expect("Failed to save default config");
         config::create_default_config()
     });
 

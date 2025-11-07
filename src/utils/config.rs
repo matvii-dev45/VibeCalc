@@ -29,3 +29,10 @@ pub fn create_default_config() -> Config {
         font_size: 18,
     }
 }
+
+pub fn save_default_config() -> anyhow::Result<()> {
+    let config = create_default_config();
+    let toml_str = toml::to_string_pretty(&config)?;
+    std::fs::write("config.toml", toml_str)?;
+    Ok(())
+}
