@@ -24,11 +24,11 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "matvii-dev45";
     repo = "VibeCalc";
-    rev = "main";
-    sha256 = "sha256-uCkyCVuxNLwWyb4L1os6HqJ54eql2CblAbtkahVwTAk=";
+    rev = "stable";
+    sha256 = "sha256-cmb2DuH+Lqz++zqDg+/WhUdA4ri0rM9GrgNfF1dBESg=";
   };
 
-  cargoHash = lib.fakeHash;
+  cargoHash = "sha256-IzMIHQIdmODAyHQsVF1tQfc8yU0c/Sm+YSOhXSluuG0=";
 
   nativeBuildInputs = [
     pkg-config
@@ -77,9 +77,9 @@ rustPlatform.buildRustPackage rec {
         alsa-lib
         pulseaudio
       ]}" \
-      --set VK_ICD_FILENAMES "${mesa.drivers}/share/vulkan/icd.d/radeon_icd.x86_64.json:${mesa.drivers}/share/vulkan/icd.d/intel_icd.x86_64.json:${mesa.drivers}/share/vulkan/icd.d/lvp_icd.x86_64.json" \
+      --set VK_ICD_FILENAMES "${mesa}/share/vulkan/icd.d/radeon_icd.x86_64.json:${mesa}/share/vulkan/icd.d/intel_icd.x86_64.json:${mesa}/share/vulkan/icd.d/lvp_icd.x86_64.json" \
       --set VK_LAYER_PATH "${vulkan-validation-layers}/share/vulkan/explicit_layer.d" \
-      --set LIBGL_DRIVERS_PATH "${mesa.drivers}/lib/dri" \
+      --set LIBGL_DRIVERS_PATH "${mesa}/lib/dri" \
       --set __GLX_VENDOR_LIBRARY_NAME "mesa" \
       --set EGL_PLATFORM "x11" \
       --set WINIT_UNIX_BACKEND "x11"
