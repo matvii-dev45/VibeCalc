@@ -19,13 +19,13 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "vibe-calc";
-  version = "0.1.0";
+  version = "unstable-2024-11-07";
 
   src = fetchFromGitHub {
     owner = "matvii-dev45";
     repo = "VibeCalc";
-    rev = "v${version}";
-    sha256 = lib.fakeSha256;
+    rev = "main";
+    sha256 = "sha256-uCkyCVuxNLwWyb4L1os6HqJ54eql2CblAbtkahVwTAk=";
   };
 
   cargoHash = lib.fakeHash;
@@ -87,7 +87,7 @@ rustPlatform.buildRustPackage rec {
 
   meta = with lib; {
     description = "A calculator with customizable GUI built with egui";
-    homepage = "https://github.com/YOUR_GITHUB_USERNAME/vibe-calc";
+    homepage = "https://github.com/matvii-dev45/VibeCalc";
     license = licenses.mit;
     maintainers = [ ];
     mainProgram = "vibe-calc";
